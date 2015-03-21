@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html id="contentload" lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+  <title>Doughner</title>
+  
+  <link href="/semantic/dist/semantic.css" rel="stylesheet">
+  <link href="/semantic/dist/custom.css" rel="stylesheet">
+ <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.js"></script>
+  <script  src="/semantic/dist/semantic.js"></script>
+  <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&signed_in=true"></script>
+  
+  <script src="/js/custom.js"></script>
+</head>
+<body>
+  <div id="modals">
+  <div class="ui ranking basic modal">
+  <i class="close icon"></i>
+  <div class="header">
+    Ranking
+  </div>
+  <div class="content">
+    <div class="image">
+      <i class="trophy icon"></i>
+    </div>
+    <div class="description">
+    
+    <div class="ui inverted segment">
+  <div class="ui inverted relaxed divided list">
+     <div class="item">
+      <div class="content">
+        <div class="header">Sam Lambert</div>
+       	Master Baker
+      </div>
+    </div>
+    <div class="item">
+      <div class="content">
+        <div class="header">Ruben Houtput</div>
+        Master Baker
+      </div>
+    </div>
+        <div class="item">
+      <div class="content">
+        <div class="header">Tom Tollenaere</div>
+        Master Baker
+      </div>
+    </div>
+    
+    <div class="item">
+      <div class="content">
+        <div class="header">Balder Croquet</div>
+        Master Baker
+      </div>
+    </div>
+    
+    <div class="item">
+      <div class="content">
+        <div class="header">Keith Lambert</div>
+        Baker
+      </div>
+    </div>    
+    
+    <div class="item">
+      <div class="content">
+        <div class="header">Paulo Sileci</div>
+        Apprentice Baker
+      </div>
+    </div>
+    
+    <div class="item">
+      <div class="content">
+        <div class="header">Kuntay Baykara</div>
+        Dough Lover
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+ </div>
+</div>
+
+
+  <div class="ui login basic modal">
+  <i class="close icon"></i>
+  <div class="header">
+    Login
+  </div>
+  <div class="content">
+    <div class="image">
+      <i class="sign in icon"></i>
+    </div>
+    <div class="description">
+     <form class="ui inverted form" role="form" method="POST" action="/users/login">
+
+        <div class="two fields">
+          <div class="field">
+            <div class="ui icon input">
+              <input type="email" placeholder="E-mail" name="email">
+            </div>
+          </div>
+
+          <div class="field">
+            <div class="ui icon input">
+              <input type="password" placeholder="Password" name="password">
+            </div>
+          </div>
+        </div>
+
+        <input type="submit" class="fluid ui orange button" value="Log In">
+
+      </form>
+    </div>
+  </div>
+</div>
+</div>
+
+  <div id="modals">
+  <div class="ui add basic modal">
+  <i class="close icon"></i>
+  <div class="header">
+    Toevoegen
+  </div>
+  <div class="content">
+    <div class="image">
+      <i class="plus icon"></i>
+    </div>
+    <div class="description">
+       <form class="ui inverted form">
+            <h4 class="ui inverted header">Geolocatie</h4>
+            <div class="ui error message">
+              <div class="header">Er is iets misgelopen, probeer later opnieuw.</div>
+            </div>
+
+            <div onclick="fillAddress();" class="ui submit orange button"><i class="globe icon"></i>Vind mij</div>
+          </form>
+          <div class="ui horizontal inverted divider">
+            Of
+          </div>
+          
+          <form id="addNewBreadDevForm" class="ui inverted form">
+            <h4 class="ui inverted header">Adres</h4>
+            <div class="field">
+              <input placeholder="Straat" type="text" name="adres[straat]" id="straat">
+            </div>
+            <div class="field">
+              <input placeholder="Nummer" type="number" name="adres[nummer]" id="nummer">
+            </div>
+            <div class="field">
+              <input placeholder="Postcode" type="text" name="adres[postcode]" id="postcode">
+            </div>
+            <div class="field">
+              <input placeholder="Gemeente" type="text" name="adres[gemeente]" id="gemeente">
+            </div>
+            <div id="addNewBreadDev" class="ui submit orange button"><i class="plus icon"></i>Voeg toe</div>
+          </form>
+    </div>
+  </div>
+</div>
+</div>
+  <div class="ui left vertical inverted orange labeled icon sidebar menu">
+   <a id="home" href="#"class="item">
+    <i class="home icon"></i>
+    Home
+  </a>
+  <a id="add"href="#" class="item">
+    <i class="plus icon"></i>
+    Toevoegen
+  </a>
+  <a id="ranking" href="#" class="item">
+    <i class="trophy icon"></i>
+    Ranking
+  </a>
+  <a id="login" href="#" class="item">
+  <i class="sign in icon"></i>
+  	Log In 
+  </a>
+</div>
+<div class="pusher">
+  <h3 class="ui attached centered header">
+    Doughner
+  </h3>
+
+  <!-- Menu -->
+  <div class="ui orange launch right attached fixed button">
+    <i class="content icon"></i>
+    <span class="text">Menu</span>
+  </div>
+  <!-- Page Content -->	
+      <div id="panel">
+     	 <div class="ui icon input">
+  			<input onClick="this.select();" id="address" type="text" value="Leuven" placeholder="Zoek">
+  			<i class="search icon"></i>
+		</div>
+		</div>
+
+      <div id="map-canvas"></div>
+      
+
+</div>
+</body>
+<script type="text/javascript">
+$(document).ready(function() {
+var height = $('.ui.orange.launch.right.attached.fixed.button').height();
+var margtop = $('.ui.orange.launch.right.attached.fixed.button').css('margin-top');
+var hHeight = $('.ui.attached.centered.header').height();
+hHeight = hHeight + parseFloat($('.ui.attached.centered.header').css('padding-top'),10) +  parseFloat($('.ui.attached.centered.header').css('padding-bottom'),10);
+var swidth = $('#panel').width();
+
+var wwidth = $(window).width();
+
+var wheight = $(window).height();
+var sheight = $('#panel').height();
+totalwidth = (wwidth/2)-(swidth/2);
+totalheight = (wheight - sheight);
+
+
+var total = height + parseFloat( margtop, 10 ) + hHeight+ "px";
+var OtherTotal = wheight - hHeight+"px";
+$('#map-canvas').css('margin-top','-'+total);
+$('#map-canvas').css('z-index','-1');
+
+$('#panel').css('top',totalheight-5);
+$('#panel').css('margin-left', totalwidth);
+});
+$('.left.sidebar').sidebar('setting', 'transition', 'overlay').sidebar('open');
+
+
+$('.ui.checkbox').checkbox();
+
+$("#address").keypress(function(e) {
+    if(e.which == 13) {
+    	codeAddress();
+    }
+});
+
+  $('.launch.button').click(function() {
+   $('.left.sidebar').sidebar('setting', 'transition', 'overlay').sidebar('toggle');
+ });
+  
+  
+  $('#login').click(function(){
+	  $('.login.modal').modal('show');
+  });
+  
+  $('#add').click(function(){
+	  $('.add.modal').modal('show');
+  });
+  $('#ranking').click(function(){
+	  $('.ranking.modal').modal('show');
+  });
+  
+  $('#addNewBreadDev').click(function(){
+	  $('#addNewBreadDevForm').submit();
+  });
+  
+  $(document).ready(function(){ 
+		  var getObject = function(form) { 
+		    var arr = form.serializeArray(), 
+		        result = {}; 
+		    $.each(arr, function(idx, field) { 
+		      result[field.name] = field.value;  
+		    }); 
+		    return result; 
+		  }; 
+
+		  $("#addNewBreadDevForm").submit(function(evt) { 
+		    $.ajax({ 
+		      url: "/api/broodautomaat", // URL aanpassen! 
+		      method: "POST", 
+		      data: JSON.stringify($('#newBroodautomaat').serializeObject()), // Dit verstuurt alle data van het formulier 
+		      dataType: "json", 
+		      contentType: "application/json; charset=utf-8" 
+		    }).success(function(response) { 
+		      console.log(response); // Wat ga je doen met de response? 
+		    }); 
+		    return false; 
+		  }); 
+		});
+	
+	function CBSelectedValueToTrue(cb) { if (cb.checked) { cb.value = "true"; } else cb.value = "false"; }
+	
+	(function($){
+	    $.fn.serializeObject = function(){
+
+	        var self = this,
+	            json = {},
+	            push_counters = {},
+	            patterns = {
+	                "validate": /^[a-zA-Z][a-zA-Z0-9_]*(?:\[(?:\d*|[a-zA-Z0-9_]+)\])*$/,
+	                "key":      /[a-zA-Z0-9_]+|(?=\[\])/g,
+	                "push":     /^$/,
+	                "fixed":    /^\d+$/,
+	                "named":    /^[a-zA-Z0-9_]+$/
+	            };
+
+
+	        this.build = function(base, key, value){
+	            base[key] = value;
+	            return base;
+	        };
+
+	        this.push_counter = function(key){
+	            if(push_counters[key] === undefined){
+	                push_counters[key] = 0;
+	            }
+	            return push_counters[key]++;
+	        };
+
+	        $.each($(this).serializeArray(), function(){
+
+	            // skip invalid keys
+	            if(!patterns.validate.test(this.name)){
+	                return;
+	            }
+
+	            var k,
+	                keys = this.name.match(patterns.key),
+	                merge = this.value,
+	                reverse_key = this.name;
+
+	            while((k = keys.pop()) !== undefined){
+
+	                // adjust reverse_key
+	                reverse_key = reverse_key.replace(new RegExp("\\[" + k + "\\]$"), '');
+
+	                // push
+	                if(k.match(patterns.push)){
+	                    merge = self.build([], self.push_counter(reverse_key), merge);
+	                }
+
+	                // fixed
+	                else if(k.match(patterns.fixed)){
+	                    merge = self.build([], k, merge);
+	                }
+
+	                // named
+	                else if(k.match(patterns.named)){
+	                    merge = self.build({}, k, merge);
+	                }
+	            }
+
+	            json = $.extend(true, json, merge);
+	        });
+
+	        return json;
+	    };
+	})(jQuery);
+  
+</script>
+</html>

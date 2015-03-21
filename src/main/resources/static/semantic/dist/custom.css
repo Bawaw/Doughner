@@ -1,0 +1,26 @@
+    html, body,.pusher, #map-canvas {
+      height: 100%;
+      width:auto;
+      margin: 0px;
+      padding: 0px
+    }
+    #panel {
+      position: absolute;
+      z-index: 5;
+    }
+    .ui.attached.centered.header{
+      color:white;
+      background: #573D19;
+      z-index:5;
+    }
+    .ui.orange.launch.right.attached.fixed.button{
+    z-index:5;
+    }
+    .ui.orange.buttons .button, .ui.orange.button{
+    background: #573D19;	
+    margin-top: 1em;
+    }
+    
+    .ui.inverted.orange.menu{
+          background: #573D19;
+    }

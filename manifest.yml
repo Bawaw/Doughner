@@ -1,0 +1,9 @@
+---
+applications:
+  - name: hackathonapp
+    memory: 256MB
+    instances: 1
+    path: hackathon-app-ibm-1.0.jar
+    buildpack: https://github.com/cloudfoundry/java-buildpack
+services:
+   - hackathon-cloudant

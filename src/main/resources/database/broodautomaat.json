@@ -1,0 +1,58 @@
+[
+  {
+    "type": "broodautomaat",
+    "adres": {
+      "straat": "Brusselsesteenweg",
+      "nummer": "232",
+      "postcode": "3090",
+      "gemeente": "Overijse"
+    },
+    "broodBeschikbaar": "true",
+    "witBroodBeschikbaar": "true",
+    "bruinBroodBeschikbaar": "false",
+    "speciaalBroodBeschikbaar": "false"
+  },
+  {
+    "type": "broodautomaat",
+    "adres": {
+      "straat": "Kerkstraat",
+      "nummer": "126",
+      "postcode": "1851",
+      "gemeente": "Humbeek"
+    },
+    "geolocatie": {
+      "x": "51.207671",
+      "y": "4.192758"
+    },
+    "broodBeschikbaar": "true",
+    "witBroodBeschikbaar": "false",
+    "bruinBroodBeschikbaar": "false",
+    "speciaalBroodBeschikbaar": "true"
+  },
+  {
+    "type": "broodautomaat",
+    "adres": {
+      "straat": "Waversesteenweg",
+      "nummer": "22",
+      "postcode": "3090",
+      "gemeente": "Overijse"
+    },
+    "broodBeschikbaar": "true",
+    "witBroodBeschikbaar": "false",
+    "bruinBroodBeschikbaar": "true",
+    "speciaalBroodBeschikbaar": "false"
+  },
+  {
+    "type": "broodautomaat",
+    "adres": {
+      "straat": "Stationstraat",
+      "nummer": "23",
+      "postcode": "1851",
+      "gemeente": "Humbeek"
+    },
+    "broodBeschikbaar": "false",
+    "witBroodBeschikbaar": "false",
+    "bruinBroodBeschikbaar": "false",
+    "speciaalBroodBeschikbaar": "false"
+  }
+]

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+  <title>Doughner</title>
+  
+  <link href="semantic/dist/semantic.css" rel="stylesheet">
+  <link href="semantic/dist/custom.css" rel="stylesheet">
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.js"></script>
+  <script  src="ssemantic/dist/semantic.js"></script>
+  <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&signed_in=true"></script>
+  
+  <script src="/js/custom.js"></script>
+</head>
+<body>
+  <div id="modals"></div>
+  <div class="ui left vertical inverted orange labeled icon sidebar menu">
+   <a href="homepage.html"class="item">
+    <i class="home icon"></i>
+    Home
+  </a>
+  <a href="add.html" class="item">
+    <i class="plus icon"></i>
+    Toevoegen
+  </a>
+  <a href="checkin.html"class="item">
+    <i class="check icon"></i>
+    Update
+  </a>
+  <a class="item">
+    <i class="trophy icon"></i>
+    Ranking
+  </a>
+
+  <a class="item">
+    <i class="sign in icon"></i>
+    Log in
+  </a>
+</div>
+<div class="pusher">
+  <h3 class="ui attached centered header">
+    Doughner
+  </h3>
+
+  <!-- Menu -->
+  <div class="ui orange launch right attached fixed button">
+    <i class="content icon"></i>
+    <span class="text">Menu</span>
+  </div>
+  <!-- Page Content -->	
+
+  <h2 class="ui center aligned icon header">
+	<i class="circular file outline icon"></i>
+	Register
+</h2>
+
+<div class="center aligned column"> 
+	<form class="ui form" role="form" method="POST" action="/auth/register">
+		
+		<div class="two fields">
+			<div class="field">
+				<div class="ui icon input">
+					<input type="text" placeholder="First Name" name="firstname">
+				</div>
+			</div>
+
+			<div class="field">
+				<div class="ui icon input">
+					<input type="text" name="secondname" placeholder="Second Name">
+				</div>
+			</div>
+		</div>
+
+		<div class="two fields">
+			<div class="field">
+				<div class="ui icon input">
+					<input type="email" placeholder="E-mail" name="email">
+				</div>
+			</div>
+
+			<div class="field">
+				<div class="ui icon input">
+					<input type="password" placeholder="Password" name="password">
+				</div>
+			</div>
+		</div>
+
+		<input type="submit" class="fluid ui orange button" value="Register">
+	</form>
+</div>
+
+</div>
+</body>
+<script type="text/javascript">
+  $(document).ready(function() {
+
+    $('.ui.checkbox').checkbox();
+
+    $('.launch.button').click(function() {
+     $('.left.sidebar').sidebar('setting', 'transition', 'overlay').sidebar('toggle');
+   });
+
+  </script>
+  </html>

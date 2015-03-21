@@ -1,0 +1,11 @@
+[
+  {
+  "type": "user",
+  "userID": "1",
+  "commits":"0",
+  "email": "dummy_user@gmail.com",
+  "username": "dummy_user",
+  "password": "t",
+  "salt": "randomStringOfCharacters"
+}
+]
